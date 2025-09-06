@@ -13,8 +13,11 @@ from wordcloud import WordCloud
 # ==============================
 @st.cache_data
 def load_data():
+    file_id = "1e5x19deGmIyyCdUNPXTf2UAY2zMtuAnz"  # replace with your file ID
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
     
-    url = "https://drive.google.com/file/d/1e5x19deGmIyyCdUNPXTf2UAY2zMtuAnz/view?usp=sharing"
+
+    
     df = pd.read_csv(url)
     df["review_length"] = df["Review"].apply(lambda x: len(str(x).split()))
 
